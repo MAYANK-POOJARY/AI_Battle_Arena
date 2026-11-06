@@ -1,6 +1,6 @@
 import { StateSchema, StateGraph, START, END, type GraphNode  } from "@langchain/langgraph";
-import { mistralModel, geminiModel, cohereModel } from "./model.ai.js";
-import { HumanMessage, createAgent, providerStrategy } from "langchain";
+import { qroqModel, cohereModel, mistralModel } from "./model.ai.js";
+import { HumanMessage, createAgent, toolStrategy } from "langchain";
 import z from "zod";
 
 // the overall data that is to be passed through the nodes
@@ -20,6 +20,8 @@ const state = new StateSchema({
 // the solution node where the models are invoked to get the solution
 const solutionNode: GraphNode<typeof state> = async (state) =>{
 
+    console.log("Solution node executed");
+
     const [mistralResponse, cohereResponse] = await Promise.all([
         mistralModel.invoke(state.problem),
         cohereModel.invoke(state.problem)
@@ -33,11 +35,13 @@ const solutionNode: GraphNode<typeof state> = async (state) =>{
 
 const judgeNode: GraphNode<typeof state> = async(state) =>{
 
+    console.log("Judge node executed")
+
     const {problem, solution_1, solution_2} = state;
 
     const judge = createAgent({
-        model: geminiModel,
-        responseFormat: providerStrategy(z.object({
+        model: qroqModel,
+        responseFormat: toolStrategy(z.object({
             solution_1_score: z.number().min(0).max(10),
             solution_2_score: z.number().min(0).max(10),
             solution_1_reasoning: z.string(),

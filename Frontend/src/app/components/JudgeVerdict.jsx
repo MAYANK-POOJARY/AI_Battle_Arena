@@ -74,10 +74,10 @@ export default function JudgeVerdict({ judge }) {
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
           <span style={{ color: 'var(--solution-1-color)' }}>
-            Solution 1: {score1}/100
+            Solution 1: {score1}/10
           </span>
           <span style={{ color: 'var(--solution-2-color)' }}>
-            Solution 2: {score2}/100
+            Solution 2: {score2}/10
           </span>
         </div>
 
@@ -87,7 +87,7 @@ export default function JudgeVerdict({ judge }) {
             <div
               className="progress-fill"
               style={{
-                width: `${Math.min(Math.max(score1, 0), 100)}%`,
+                width: `${Math.min(Math.max(score1 * 10, 0), 100)}%`,
                 background: 'var(--solution-1-color)'
               }}
             />
@@ -97,7 +97,7 @@ export default function JudgeVerdict({ judge }) {
             <div
               className="progress-fill"
               style={{
-                width: `${Math.min(Math.max(score2, 0), 100)}%`,
+                width: `${Math.min(Math.max(score2 * 10, 0), 100)}%`,
                 background: 'var(--solution-2-color)'
               }}
             />

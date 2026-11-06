@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Play, Sparkles, Loader2 } from 'lucide-react';
 
-export default function InputSection({ currentProblem, onEvaluate, isEvaluating }) {
+export default function InputSection({ onEvaluate, isEvaluating }) {
   const [inputText, setInputText] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputText.trim()) {
       onEvaluate(inputText.trim());
-      setInputText('');
     }
   };
 
@@ -53,7 +52,7 @@ export default function InputSection({ currentProblem, onEvaluate, isEvaluating 
           >
             {isEvaluating ? (
               <>
-                <Loader2 size={16} className="animate-spin" />
+                <Loader2 size={16} className="spinner" />
                 <span>Evaluating...</span>
               </>
             ) : (

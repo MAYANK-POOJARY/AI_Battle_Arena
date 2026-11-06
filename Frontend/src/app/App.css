@@ -256,3 +256,13 @@ body {
 .animate-fade-in {
   animation: fadeIn 0.25s ease forwards;
 }
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

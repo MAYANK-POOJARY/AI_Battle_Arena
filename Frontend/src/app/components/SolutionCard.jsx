@@ -69,7 +69,7 @@ export default function SolutionCard({
 
           {/* Score Badge */}
           <span className={`badge ${badgeClass}`}>
-            Score: {score !== undefined ? score : 0}/100
+            Score: {score !== undefined ? score : 0}/10
           </span>
 
           {/* Copy Button */}
