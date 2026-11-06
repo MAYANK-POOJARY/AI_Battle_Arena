@@ -13,12 +13,9 @@ AI Battle Arena is a full-stack application for comparing two AI-generated answe
 
 ## Screenshots
 
-
-```markdown
-![AI Battle Arena input screen](/images/InputSectionImage.png)
-![AI Battle Arena model output](/images//ModelAnswerSection.png)
-![AI Battle Arena evaluation results](/images/JudgeAnswerSection.png)
-```
+![AI Battle Arena input screen](./images/InputSectionImage.png)
+![AI Battle Arena model output](./images/ModelAnswerSection.png)
+![AI Battle Arena evaluation results](./images/JudgeAnswerSection.png)
 
 ## Project structure
 
